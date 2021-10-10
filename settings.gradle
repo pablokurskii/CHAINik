@@ -1,2 +1,5 @@
 rootProject.name = 'CHAINik'
+include 'sample'
+include 'crypto'
+include 'utils'
 

@@ -1,16 +1,38 @@
 plugins {
+    //support Idea IDE
+    id 'idea'
+    id "io.spring.dependency-management" version "1.0.11.RELEASE"
     id 'java'
 }
 
-group 'org.chain-ik'
-version '1.0'
+description 'CHAINik base project.'
 
-repositories {
-    mavenCentral()
+idea {
+    project {
+        languageLevel = 15
+    }
+    module {
+        downloadJavadoc = true
+        downloadSources = true
+    }
 }
 
-dependencies {
-}
+allprojects {
+    group "org.chainik"
+    apply plugin: "io.spring.dependency-management"
 
-test {
+    tasks.withType(Test) {
+        useJUnitPlatform()
+    }
+
+    repositories {
+        mavenCentral()
+    }
+
+    dependencyManagement {
+        dependencies {
+            dependency("org.junit.jupiter:junit-jupiter-api:${Versions.junitVersion}")
+            dependency("org.bouncycastle:bcprov-jdk15on:${Versions.bouncycastleVersion}")
+        }
+    }
 }

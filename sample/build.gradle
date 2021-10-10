@@ -1,0 +1,15 @@
+plugins {
+    id 'java'
+}
+
+group 'org.chainik'
+version '1.0'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation project(':utils')
+    implementation project(':crypto')
+}
