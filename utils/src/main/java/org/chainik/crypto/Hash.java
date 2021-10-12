@@ -29,4 +29,17 @@ public class Hash {
     public static String sha3String(String utf8String) {
         return Numeric.toHexString(sha3(utf8String.getBytes(StandardCharsets.UTF_8)));
     }
+
+    //TODO not tested
+    /**
+     * Keccak-256 hash function.
+     *
+     * @param hexInput hex encoded input data with optional 0x prefix
+     * @return hash value as hex encoded string
+     */
+    public static String sha3(String hexInput) {
+        byte[] bytes = Numeric.hexStringToByteArray(hexInput);
+        byte[] result = sha3(bytes);
+        return Numeric.toHexString(result);
+    }
 }

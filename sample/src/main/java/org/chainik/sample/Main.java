@@ -27,11 +27,14 @@ public class Main {
 
             //Generated Private Key with 128 bit || 64 bytes
             String ECPublicKey = Numeric.toHexString(ecKeyPair.getPublicKey().toByteArray());
-            System.out.println("PublicKey: " + ECPublicKey);
+            System.out.println("Public Key: " + ECPublicKey);
 
             /*
              * STEP 2: GET ADDRESS
              * */
+
+            String ECAddress = Keys.getAddress(ECPublicKey);
+            System.out.println("Address: " + ECAddress);
 
             /*
              * STEP 3: GET SIGN
